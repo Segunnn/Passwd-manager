@@ -6,8 +6,6 @@ from db import DataBase
 dpg.create_context()
 dpg.create_viewport(title="Passwd Manager", width=600, height=300)
 
-# TODO FIX CHECK PASSWORD
-
 authenticated = False
 wndw = None  # will hold the tag name of main window ("main_window")
 
@@ -220,13 +218,11 @@ def auth():
     with dpg.window(label="Password required", tag="pass_modal",
                     modal=True, show=True, no_close=True, width=380, height=140):
         dpg.add_text("User's password is required")
-        #dpg.add_spacer(count=1)
         # username and password inputs; on_enter will call the check function
         dpg.add_input_text(tag="username_input", hint="username",
                            on_enter=True, callback=lambda s, a, u: dpg.focus_item('userpass_input'))
         dpg.add_input_text(password=True, tag="userpass_input",
                            on_enter=True, callback=check_password_su)
-        #dpg.add_spacer(count=1)
         dpg.add_text("", tag="auth_status")  # will be updated with set_value()
 
 
