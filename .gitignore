@@ -1,0 +1,16 @@
+# Python cache and bytecode
+__pycache__/
+*.pyc
+
+# Dear PyGui / PyInstaller build output
+build/
+dist/
+*.spec
+
+# Local database file (optional)
+.batadase.db
+
+# Virtual environments
+venv/
+.env/
+
