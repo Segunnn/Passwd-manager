@@ -95,7 +95,6 @@ class DatabaseManager:
     def init_db(self):
         with self.connect() as conn:
             cursor = conn.cursor()
-            # Updated Schema based on requirements
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS credentials (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -213,7 +212,6 @@ class LoginWindow(QWidget):
         restart_application()
 
     def check_pin(self):
-        # HARDCODED PIN FOR DEMO
         if SecurityManager.verify_pin(self.pin_input.text()):
             self.on_success()
             global PPPIIINNN
