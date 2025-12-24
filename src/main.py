@@ -488,7 +488,7 @@ class MainWindow(QMainWindow):
         entries = self.db.get_all_entries()
         for entry in entries:
             # entry structure: id, resource, login, gmail, password, note
-            item = QListWidgetItem(entry[1]) # Display Resource Name
+            item = QListWidgetItem(f"{entry[1]} ({entry[2] if entry[2] else entry[3]})") # Display Resource Name
             item.setData(Qt.ItemDataRole.UserRole, entry) # Store full data in item
             self.resource_list.addItem(item)
 
