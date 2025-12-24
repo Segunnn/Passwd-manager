@@ -277,7 +277,7 @@ class MainWindow(QMainWindow):
         self.inp_resource = StyledLineEdit("Resource Name (Required)")
         self.inp_login = StyledLineEdit("Login / Username")
         self.inp_gmail = StyledLineEdit("Gmail / Email")
-        self.inp_pass = StyledLineEdit("Password (Required)", is_password=True)
+        self.inp_pass = StyledLineEdit("Password (Required)")
         self.inp_pass_toggle = QPushButton("Show")
         self.inp_pass_toggle.setCheckable(True)
         self.inp_pass_toggle.clicked.connect(self.toggle_form_password)
@@ -437,7 +437,7 @@ class MainWindow(QMainWindow):
         self.left_stack.setCurrentIndex(0)
 
     def toggle_form_password(self):
-        if self.inp_pass_toggle.isChecked():
+        if self.inp_pass_toggle.isChecked() and self.inp_pass.text():
             self.inp_pass.setEchoMode(QLineEdit.EchoMode.Normal)
             self.inp_pass_toggle.setText("Hide")
         else:
@@ -522,7 +522,8 @@ class MainWindow(QMainWindow):
         self.inp_resource.setText(resource)
         self.inp_login.setText(login)
         self.inp_gmail.setText(gmail)
-        self.inp_pass.setText(password)
+        self.inp_pass.setText(SecurityManager.decrypt(password))
+        self.inp_pass.setEchoMode(QLineEdit.EchoMode.Password)
         self.inp_note.setText(note)
         
         # Switch Left Panel to Form
