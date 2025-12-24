@@ -18,7 +18,7 @@ from PyQt6.QtGui import QColor, QFont, QIcon
 
 PPPIIINNN = ""
 
-# --- SECURITY MANAGER (Placeholder) ---
+# --- SECURITY MANAGER  ---
 class SecurityManager:
     PINHASH_FILENAME = ".pinc"
     SALT_SIZE = 16
